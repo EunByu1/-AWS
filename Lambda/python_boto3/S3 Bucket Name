@@ -1,0 +1,15 @@
+# [0] boto3 import
+import boto3
+
+# [1] S3 Client 생성
+s3 = boto3.client("s3")
+
+# [2] S3에 있는 현재 버킷리스트의 정보 가져오기
+response = s3.list_buckets()
+print(response)
+
+# [3] response에 담겨 있는 buckets의 이름만 가져와서 buckets 변수에 배열 형태로 저장 
+buckets = [bucket["Name"] for bucket in response["Buckets"]]
+
+# [4] S3 buckets의 이름 출력
+print("Bucket Name : %s" % buckets)
