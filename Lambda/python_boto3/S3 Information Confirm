@@ -1,0 +1,9 @@
+from urllib import response
+import boto3
+
+# S3 Client 생성
+s3 = boto3.client("s3")
+
+# S3에 있는 현재 버킷리스트의 정보 가져오기
+response = s3.list_buckets()
+print(response)
